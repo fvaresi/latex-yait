@@ -55,24 +55,25 @@
 %%%%%%%%%%%%%%%%%%%%%%
 
 \title{Title of the invoice}
-\date{\today }
+\xdef\invoicedate{January 01, 2018}
+\xdef\invoicedue{February 01, 2018}
 \xdef\invoicenum{001}
-\xdef\companyname{Comp.}
-\xdef\companyaddress{foo, bar street, XXXXX City}
-\xdef\companysiren{XXX XXXX XXXX}
-\xdef\companytel{XX\,XX\,XX\,XX\,XX}
-\xdef\companyemail{xxx@xxx.xxx}
-\xdef\bankiban{XXXX\,XXXX\,XXXX\,XXXX\,XXXX\,XXXX\,XXXX}
-\xdef\bankbic{XXX\,XXX\,XXX}
-\long\xdef\conditions{write the sell conditions here
-
-on several lines}
+\xdef\invoiceperiod{January 2018}
+\xdef\invoiceammount{6700}
+\xdef\companyname{Fernando Varesi R\"{u}gnitz}
+\xdef\companystreet{Ram\'{o}n del Valle Incl\'{a}n 2159 / 252}
+\xdef\companycity{Montevideo - Uruguay}
+\xdef\companytel{+598 99 278 251}
+\xdef\companyemail{fvaresi@gmail.com}
+\long\xdef\intermediarybank{Banco Rep\'{u}blica Oriental del Uruguay NY | Swift Code: BROUUS33 | ABA: 026003324}
+\long\xdef\beneficiarybank{Banco Rep\'{u}blica Oriental del Uruguay | Cerrito 351, Montevideo - Uruguay | Swift code: BROUUYMM}
+\long\xdef\finalbeneficiary{Fernando Varesi R\"{u}gnitz | Account: 1770424032 | Telephone: +598 99 278 251}
 
 \makeatletter
 \let\thetitle\@title
 \makeatother
 
-\usepackage[pdfencoding=auto,unicode, bookmarks=false, colorlinks=false, pdfborder={0 0 0},pdftitle={Invoice from XXX}, pdfauthor={XXX}, pdfsubject={Invoice}, pdfkeywords={Invoice, XXX}]{hyperref}
+\usepackage[pdfencoding=auto,unicode, bookmarks=false, colorlinks=false, pdfborder={0 0 0},pdftitle={Invoice from Fernando Varesi}, pdfauthor={Fernando Varesi}, pdfsubject={Invoice}, pdfkeywords={Invoice, Varesi}]{hyperref}
 \pagestyle{empty}
 \usepackage[table]{xcolor}
 \usepackage{longtable}
@@ -116,7 +117,7 @@ on several lines}
 }}
 \vskip 3mm%
 {\fontsize{0.44cm}{0.5cm}%
-\emph{thank you for your confidence!}%
+\emph{Ingeniero en Computaci\'{o}n}%
 }
 }%
 %
@@ -131,7 +132,9 @@ Invoice%
 \kern -5mm
 
 \leavevmode\kern \rightalignment \parbox{0.35\textwidth}{\ttfamily N\textsuperscript{o} \invoicenum\\
-\today }
+  Invoice Date: \invoicedate\\
+  Due Date: \invoicedue
+}
 
 \vskip 0.7cm
 
@@ -139,33 +142,34 @@ Invoice%
   \kern 1mm\begin{minipage}[t]{0.5\textwidth}
     \color{white}
     \vskip 2mm
-    Company \textbf{Foo},\\
-    Temple Bar,\\
-    Dublin.\\
+    Company \textbf{Mind Research Institute},\\
+    111 Academy Dr,\\
+    Irvine, CA, 92617
+    1 949345-8700\\
     \vspace*{-3mm}%
   \end{minipage}
 }
 
 \vskip 2.3cm
 
-\begin{center}
-{\ttfamily\LARGE \thetitle}
-
-\rule{2cm}{0.25pt}
-\end{center}
-
 \tabulinesep=3mm
-\begin{longtabu} to \textwidth{X[6,L,m]X[1,c,m]X[1,c,m]X[0.5,r,m]}
+\begin{longtabu} to \textwidth{X[6,L,m]X[2,r,m]}
     \taburowcolors 1{headcolor .. headcolor}
     \rowfont[c]{\bfseries}%
-    product & unit price & qty. & price \tabularnewline
+    DESCRIPTION &   AMMOUNT \tabularnewline
     \taburowcolors 1{tablecolor1 .. tablecolor2}
-    My product 1 & 15\,€ & 10 & 150\,€\\
-    My product 2 & 25\,€ & 10 & 250\,€\\
-    My product 3 & 35\,€ & 10 & 350\,€\\
-    My product 4 & 45\,€ & 10 & 450\,€\\
+    Monthly Fee: \invoiceperiod\ - Software development & \$ \invoiceammount\\
+     & \\
+     & \\
+     & \\
+     & \\
+     & \\
+     & \\
+     & \\
+     & \\
+     & \\
     \taburowcolors 1{headcolor .. headcolor}\tabulinesep=3mm
-    Total\footnote{\footnotestyle{example of footnote}} & & & \hbox to 0pt{\vbox to 0cm{\kern 0.61cm 1200\,€\vss}\hss}\\[3mm]
+    Total & \hbox to 0pt{\vbox to 0cm{\kern 0.61cm \$ \invoiceammount\vss}\hss}\\[3mm]
 \end{longtabu}
 
 \vfill
@@ -174,16 +178,17 @@ Invoice%
 
 \setlength{\columnsep}{1.5cm}
 \begin{multicols}{2}
-\noindent\companyname{},\\
-Auto-entrepreneur {\small (APE XXXXX)},\\
-\companyaddress{},\\
-SIREN\,: \companysiren{},\\
-\hbox to 1cm{Tél\,:\hss} \companytel,\\
-\hbox to 1cm{Mél\,:\hss} \companyemail,\\
-\hbox to 1cm{IBAN\,:\hss} \bankiban,\\
-\hbox to 1cm{BIC\,:\hss} \bankbic
+\noindent\companyname{}\\
+Ingeniero en Computaci\'{o}n\\
+\companystreet{}\\
+\companycity{}\\
+\hbox to 1cm{Phone\,:\hss} \companytel\\
+\hbox to 1cm{Email\,:\hss} \companyemail\\
 \end{multicols}
 
-\footnotestyle{\textbf{Conditions de paiement:} \conditions }
+\footnotestyle{\textbf{Wire Transfer Information}\\
+  Intermediary Bank: \intermediarybank\\
+  Beneficiary Bank: \beneficiarybank\\
+  Final Beneficiary: \finalbeneficiary}
 
 \end{document}
